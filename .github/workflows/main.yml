@@ -13,6 +13,6 @@ jobs:
         id: creds
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::918035416525:role/github-oidc-Role-for-action-workflow
+          role-to-assume: arn:aws:iam::918035416525:role/github-action-no-permissions
           role-session-name: ${{github.run_id}}
           aws-region: us-east-1
