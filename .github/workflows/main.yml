@@ -12,10 +12,17 @@ jobs:
       - uses: ./action-a
         with:
           MY_NAME: "Welly"
-      - name: Configure AWS credentials
+      - name: Configure AWS credentials Standard
         id: creds
         uses: aws-actions/configure-aws-credentials@v1
         with:
           role-to-assume: arn:aws:iam::918035416525:role/github-action-no-permissions
+          role-session-name: ${{github.run_id}}
+          aws-region: us-east-1
+      - name: Configure AWS credentials Enterprise
+        id: creds-ent
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: arn:aws:iam::918035416525:role/github-oidc-Role-for-action-workflow
           role-session-name: ${{github.run_id}}
           aws-region: us-east-1
